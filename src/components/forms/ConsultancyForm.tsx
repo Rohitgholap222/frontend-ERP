@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Briefcase, Plus } from "lucide-react";
+import { Plus } from "lucide-react";
 import { useState } from "react";
 
 const ConsultancyForm = () => {
@@ -61,7 +61,7 @@ const ConsultancyForm = () => {
             <Label>Duration (in months)</Label>
             <Input value={formData.duration} onChange={(e) => handleChange("duration", e.target.value)} />
           </div>
-          <Button type="submit"><Plus className="h-4 w-4 mr-2" />Create Project</Button>
+          <Button type="submit"><Plus className="h-4 w-4 mr-2" />Add Project</Button>
         </form>
       </CardContent>
     </Card>

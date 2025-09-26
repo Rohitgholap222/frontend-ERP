@@ -6,13 +6,14 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AdminDashboard from "./components/admin/AdminDashboard";
 import AllotmentPage from "./components/admin/AllotmentPage";
 import ApproveApplications from "./components/admin/ApproveApplications";
-import CreateInternship from "./components/admin/CreateInternship";
+import CreateInternship from "./components/admin/IndustryCollaboration";
 import Layout from "./components/Layout";
 import ApplicationForm from "./components/student/ApplicationForm";
 import ApplicationStatus from "./components/student/ApplicationStatus";
 import InternshipList from "./components/student/InternshipList";
 import StudentDashboard from "./components/student/StudentDashboard";
 import NotFound from "./pages/NotFound";
+import IndustryCollaboration from "./components/admin/IndustryCollaboration";
 
 const queryClient = new QueryClient();
 
@@ -66,9 +67,9 @@ const App = () => (
               <AllotmentPage />
             </Layout>
           } />
-          <Route path="/admin/create-internship" element={
+          <Route path="/admin/industry-collaboration" element={
             <Layout userRole="admin">
-              <CreateInternship />
+              <IndustryCollaboration />
             </Layout>
           } />
           

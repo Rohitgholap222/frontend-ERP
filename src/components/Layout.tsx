@@ -27,7 +27,7 @@ const Layout = ({ children, userRole }: LayoutProps) => {
     { to: '/admin/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
     { to: '/admin/applications', icon: CheckSquare, label: 'Approve Applications' },
     { to: '/admin/allotments', icon: Users, label: 'Allotments' },
-    { to: '/admin/create-internship', icon: PlusCircle, label: 'Create Internship' },
+    { to: '/admin/industry-collaboration', icon: PlusCircle, label: 'Industry Collaboration' },
   ];
 
   const navItems = userRole === 'student' ? studentNavItems : adminNavItems;

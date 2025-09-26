@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button"; // correct
 
 
 
-const CreateInternship = () => {
+const IndustryCollaboration = () => {
   const [activeTab, setActiveTab] = useState("Internship");
 
   const renderTabContent = () => {
@@ -65,7 +65,7 @@ const CreateInternship = () => {
   );
 };
 
-export default CreateInternship;
+export default IndustryCollaboration;
 
 // import { Button } from "@/components/ui/button";
 // import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
