@@ -51,9 +51,9 @@ const LoginPage = () => {
           <h1 className="text-3xl font-bold text-primary-foreground mb-2">
             Internship ERP System
           </h1>
-          <p className="text-primary-foreground/80">
+          {/* <p className="text-primary-foreground/80">
             Streamlining internship applications and approvals
-          </p>
+          </p> */}
         </div>
 
         <Card className="shadow-lg border-0">
@@ -108,11 +108,11 @@ const LoginPage = () => {
               </Button>
             </form>
 
-            <div className="mt-6 text-center text-sm text-muted-foreground">
+            {/* <div className="mt-6 text-center text-sm text-muted-foreground">
               <p>Demo Credentials:</p>
               <p>Student: student@university.edu / student123</p>
               <p>Admin: admin@university.edu / admin123</p>
-            </div>
+            </div> */}
           </CardContent>
         </Card>
       </div>
