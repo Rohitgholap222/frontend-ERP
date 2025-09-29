@@ -56,7 +56,7 @@ const Companies: React.FC = () => {
           <table className="min-w-full text-left border border-gray-300 rounded-lg">
             <thead className="bg-gray-100">
               <tr>
-                <th className="py-3 px-5 border-b text-gray-700">#</th>
+                <th className="py-3 px-5 border-b text-gray-700">Sr. No.</th>
                 <th className="py-3 px-5 border-b text-gray-700">
                   Company Name
                 </th>
@@ -110,11 +110,7 @@ const Companies: React.FC = () => {
           </table>
         </div>
 
-        {/* Footer Note */}
-        <p className="text-sm text-gray-500 mt-6 text-center">
-          *Status is updated by the company based on their availability for the
-          college drive.
-        </p>
+        
       </div>
     </div>
   );
