@@ -31,12 +31,10 @@ const studentNavItems = [
     { to: '/admin/applications', icon: CheckSquare, label: 'Approve Applications' },
     { to: '/admin/allotments', icon: Users, label: 'Allotments' },
     { to: '/admin/industry-collaboration', icon: PlusCircle, label: 'Industry Collaboration' },
-<<<<<<< HEAD
-  
-=======
-    { to: '/admin/companies', icon: PlusCircle, label: 'Companies' },
 
->>>>>>> ebefb0026dfdc8eac0d2f68f7b1c8a28d982deac
+    { to: '/admin/companies', icon: Building2, label: 'Companies' },
+
+
   ];
 
   const navItems = userRole === 'student' ? studentNavItems : adminNavItems;
