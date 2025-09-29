@@ -17,11 +17,13 @@ interface LayoutProps {
 const Layout = ({ children, userRole }: LayoutProps) => {
   const location = useLocation();
 
-  const studentNavItems = [
-    { to: '/student/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
-    { to: '/student/internships', icon: Building2, label: 'Internships' },
-    { to: '/student/applications', icon: FileText, label: 'My Applications' },
-  ];
+const studentNavItems = [
+  { to: '/student/dashboard', label: 'Dashboard', icon: LayoutDashboard },
+  { to: '/student/internships', label: 'Student Opportunity', icon: Building2 },
+  { to: '/student/applications', label: 'My Applications', icon: FileText },
+];
+
+
 
   const adminNavItems = [
     { to: '/admin/dashboard', icon: LayoutDashboard, label: 'Dashboard' },

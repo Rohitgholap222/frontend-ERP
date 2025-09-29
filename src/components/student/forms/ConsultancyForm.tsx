@@ -1,67 +1,32 @@
-// src/components/student/ApplicationForm.tsx
-import StudentOpportunityNav from "@/components/student/StudentOpportunityNav";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Building2, MapPin, Search, Users } from "lucide-react";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useState } from "react";
 
-interface Post {
-  id: number;
-  title: string;
-  description: string;
-  eligibility: string;
-  openings: number;
-  location: string;
-}
+const mockPosts = [
+  { id: 2, title: "AI Consultancy Project", description: "Work on AI solutions", eligibility: "CS/IT", openings: 5, location: "Onsite" },
+];
 
-const ApplicationForm = () => {
-  const { module } = useParams<{ module: string }>();
-  const [postList, setPostList] = useState<Post[]>([]);
+const ConsultancyForm = () => {
   const [searchTerm, setSearchTerm] = useState("");
-
-  // Fetch posts for selected module
-  useEffect(() => {
-    fetch(`/api/student/posts?module=${module}`)
-      .then((res) => res.json())
-      .then((data) => setPostList(data))
-      .catch((err) => console.error(err));
-  }, [module]);
-
-  const filteredPosts = postList.filter(
+  const filteredPosts = mockPosts.filter(
     (post) =>
       post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       post.description.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const handleApply = (postId: number) => {
-    // Redirect to a detailed apply page or handle submission
-    alert(`Applied for post ID: ${postId}`);
-  };
+  const handleApply = (postId: number) => alert(`Applied for consultancy post ID: ${postId}`);
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold tracking-tight">
-        Apply for {module?.replace("-", " ").toUpperCase()}
-      </h1>
-
-      {/* Module Nav */}
-      <StudentOpportunityNav />
-
-      {/* Search */}
+      <h1 className="text-3xl font-bold tracking-tight">Apply for Consultancy Work / Project</h1>
       <div className="relative">
         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-        <Input
-          placeholder="Search posts..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="pl-10"
-        />
+        <Input placeholder="Search posts..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className="pl-10" />
       </div>
 
-      {/* Posts */}
       {filteredPosts.length > 0 ? (
         <div className="grid gap-6 md:grid-cols-2">
           {filteredPosts.map((post) => (
@@ -74,9 +39,7 @@ const ApplicationForm = () => {
                     </div>
                     <div>
                       <CardTitle className="text-lg">{post.title}</CardTitle>
-                      <CardDescription className="font-medium text-foreground">
-                        {post.description}
-                      </CardDescription>
+                      <CardDescription className="font-medium text-foreground">{post.description}</CardDescription>
                     </div>
                   </div>
                   <Badge variant="secondary">
@@ -87,21 +50,16 @@ const ApplicationForm = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="text-sm text-muted-foreground line-clamp-3">{post.description}</p>
-
                 <div className="space-y-2">
                   <h4 className="text-sm font-semibold">Eligibility Criteria:</h4>
                   <p className="text-sm text-muted-foreground">{post.eligibility}</p>
                 </div>
-
                 <div className="flex justify-between items-center pt-4">
                   <div className="flex items-center text-sm text-muted-foreground">
                     <MapPin className="h-4 w-4 mr-1" />
-                    {post.location || "Remote/Hybrid"}
+                    {post.location}
                   </div>
-                  <Button
-                    onClick={() => handleApply(post.id)}
-                    className="bg-gradient-primary hover:bg-primary-dark"
-                  >
+                  <Button onClick={() => handleApply(post.id)} className="bg-gradient-primary hover:bg-primary-dark">
                     Apply Now
                   </Button>
                 </div>
@@ -112,16 +70,11 @@ const ApplicationForm = () => {
       ) : (
         <div className="text-center py-12">
           <Building2 className="mx-auto h-12 w-12 text-muted-foreground" />
-          <h3 className="mt-2 text-sm font-semibold text-gray-900">
-            No posts found for this module
-          </h3>
-          <p className="mt-1 text-sm text-muted-foreground">
-            Please check back later or adjust your search.
-          </p>
+          <h3 className="mt-2 text-sm font-semibold text-gray-900">No posts found</h3>
         </div>
       )}
     </div>
   );
 };
 
-export default ApplicationForm;
+export default ConsultancyForm;

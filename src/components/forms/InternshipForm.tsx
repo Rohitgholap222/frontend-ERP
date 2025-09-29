@@ -158,7 +158,7 @@ const InternshipForm = () => {
               className="bg-gradient-primary hover:bg-primary-dark"
             >
               <Plus className="h-4 w-4 mr-2" />
-              Create Internship
+              Add Internship
             </Button>
           </div>
         </form>

@@ -4,64 +4,134 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Factory, Plus } from "lucide-react";
+import { Building2, Plus } from "lucide-react";
 import { useState } from "react";
 
 const IndustrialVisitForm = () => {
   const [formData, setFormData] = useState({
     companyName: "",
     location: "",
-    purpose: "",
     date: "",
+    coordinator: "",
+    objectives: "",
   });
 
   const { toast } = useToast();
 
-  const handleChange = (field: string, value: string) => {
+  const handleInputChange = (field: string, value: string) =>
     setFormData((prev) => ({ ...prev, [field]: value }));
-  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.companyName || !formData.date) {
+    if (
+      !formData.companyName ||
+      !formData.location ||
+      !formData.date ||
+      !formData.coordinator ||
+      !formData.objectives
+    ) {
       toast({
         title: "Missing Info",
-        description: "Company name and Date are required.",
+        description: "All fields are required.",
         variant: "destructive",
       });
       return;
     }
     toast({
-      title: "Industrial Visit Planned",
-      description: `${formData.companyName} on ${formData.date}`,
+      title: "Industrial Visit Added!",
+      description: `${formData.companyName} – ${formData.location}`,
     });
-    setFormData({ companyName: "", location: "", purpose: "", date: "" });
+    setFormData({
+      companyName: "",
+      location: "",
+      date: "",
+      coordinator: "",
+      objectives: "",
+    });
   };
 
   return (
-    <Card>
+    <Card className="shadow-card max-w-3xl mx-auto">
       <CardHeader>
-        <CardTitle>New Industrial Visit</CardTitle>
+        <div className="flex items-center space-x-3">
+          <div className="w-12 h-12 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-lg flex items-center justify-center">
+            <Building2 className="h-6 w-6 text-white" />
+          </div>
+          <CardTitle>Industrial Visit</CardTitle>
+        </div>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <Label>Company Name *</Label>
-            <Input value={formData.companyName} onChange={(e) => handleChange("companyName", e.target.value)} />
+            <Input
+              placeholder="Enter company name"
+              className="border-gray-500"
+              value={formData.companyName}
+              onChange={(e) => handleInputChange("companyName", e.target.value)}
+            />
           </div>
+
           <div>
-            <Label>Location</Label>
-            <Input value={formData.location} onChange={(e) => handleChange("location", e.target.value)} />
+            <Label>Location *</Label>
+            <Input
+              placeholder="Enter visit location"
+              className="border-gray-500"
+              value={formData.location}
+              onChange={(e) => handleInputChange("location", e.target.value)}
+            />
           </div>
-          <div>
-            <Label>Purpose</Label>
-            <Textarea value={formData.purpose} onChange={(e) => handleChange("purpose", e.target.value)} />
-          </div>
+
           <div>
             <Label>Date *</Label>
-            <Input type="date" value={formData.date} onChange={(e) => handleChange("date", e.target.value)} />
+            <Input
+              type="date"
+              className="border-gray-500"
+              value={formData.date}
+              onChange={(e) => handleInputChange("date", e.target.value)}
+            />
           </div>
-          <Button type="submit"><Plus className="h-4 w-4 mr-2" />Plan Visit</Button>
+
+          <div>
+            <Label>Coordinator *</Label>
+            <Input
+              placeholder="Enter coordinator name"
+              className="border-gray-500"
+              value={formData.coordinator}
+              onChange={(e) => handleInputChange("coordinator", e.target.value)}
+            />
+          </div>
+
+          <div>
+            <Label>Objectives *</Label>
+            <Textarea
+              placeholder="Enter main objectives of the visit"
+              className="border-gray-500"
+              value={formData.objectives}
+              onChange={(e) => handleInputChange("objectives", e.target.value)}
+            />
+          </div>
+
+          <div className="flex justify-end space-x-4 pt-6">
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() =>
+                setFormData({
+                  companyName: "",
+                  location: "",
+                  date: "",
+                  coordinator: "",
+                  objectives: "",
+                })
+              }
+            >
+              Clear
+            </Button>
+            <Button type="submit">
+              <Plus className="h-4 w-4 mr-2" /> Add Visit
+            </Button>
+          </div>
         </form>
       </CardContent>
     </Card>
