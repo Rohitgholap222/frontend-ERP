@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button"; // correct
 
 
 const IndustryCollaboration = () => {
-  const [activeTab, setActiveTab] = useState("Internship");
+  const [activeTab, setActiveTab] = useState("Trainning/Skill Workshop");
 
   const renderTabContent = () => {
     switch (activeTab) {

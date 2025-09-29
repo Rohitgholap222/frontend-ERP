@@ -165,7 +165,7 @@ const ApproveApplications = () => {
                       className="bg-success hover:bg-success/90 text-success-foreground"
                     >
                       <CheckCircle className="h-4 w-4 mr-2" />
-                      Approve
+                      Add
                     </Button>
                   </div>
                 )}
