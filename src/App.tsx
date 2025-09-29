@@ -8,6 +8,7 @@ import AdminDashboard from "./components/admin/AdminDashboard";
 import AllotmentPage from "./components/admin/AllotmentPage";
 import ApproveApplications from "./components/admin/ApproveApplications";
 import IndustryCollaboration from "./components/admin/IndustryCollaboration";
+import Companies from "./components/admin/Companies";
 
 import Layout from "./components/Layout";
 import ApplicationStatus from "./components/student/ApplicationStatus";
@@ -23,6 +24,7 @@ import IndustrialVisitForm from "./components/student/forms/IndustrialVisitForm"
 
 import LoginPage from "./pages/LoginPage";
 import NotFound from "./pages/NotFound";
+// import Companies from "./components/admin/Companies";
 
 const queryClient = new QueryClient();
 
@@ -145,8 +147,19 @@ const App = () => (
               <Layout userRole="admin">
                 <IndustryCollaboration />
               </Layout>
-            }
+            } 
           />
+          <Route 
+            path="/admin/companies"
+            element={
+              <Layout userRole="admin" >
+                <div className="min-h-screen bg-gray-50">
+                    <Companies />
+                </div>
+                
+              </Layout>
+            }
+            />
 
           {/* 404 Route */}
           <Route path="*" element={<NotFound />} />

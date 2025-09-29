@@ -21,6 +21,7 @@ const studentNavItems = [
   { to: '/student/dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { to: '/student/internships', label: 'Student Opportunity', icon: Building2 },
   { to: '/student/applications', label: 'My Applications', icon: FileText },
+
 ];
 
 
@@ -30,7 +31,12 @@ const studentNavItems = [
     { to: '/admin/applications', icon: CheckSquare, label: 'Approve Applications' },
     { to: '/admin/allotments', icon: Users, label: 'Allotments' },
     { to: '/admin/industry-collaboration', icon: PlusCircle, label: 'Industry Collaboration' },
+<<<<<<< HEAD
   
+=======
+    { to: '/admin/companies', icon: PlusCircle, label: 'Companies' },
+
+>>>>>>> ebefb0026dfdc8eac0d2f68f7b1c8a28d982deac
   ];
 
   const navItems = userRole === 'student' ? studentNavItems : adminNavItems;
