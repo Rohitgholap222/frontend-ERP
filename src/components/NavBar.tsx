@@ -21,7 +21,7 @@ const NavBar = () => {
           className={`px-4 py-2 rounded ${
             location.pathname === item.path
               ? "bg-blue-600 text-white"
-              : "hover:bg-gray-200"
+              : "hover:bg-gray-20LL0"
           }`}
         >
           {item.label}
