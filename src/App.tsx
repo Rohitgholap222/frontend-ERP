@@ -115,6 +115,14 @@ const App = () => (
               </Layout>
             }
           />
+          <Route
+            path="/student/applications-management"
+            element={
+              <Layout userRole="student">
+                <ApplicationStatus />
+              </Layout>
+            }
+          />
 
           {/* Admin Routes */}
           <Route
